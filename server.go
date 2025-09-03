@@ -63,8 +63,7 @@ func ExchangeHandler(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
-	json.NewEncoder(w).Encode(exchange.USDBRL.Bid)
-
+	json.NewEncoder(w).Encode(map[string]string{"bid": exchange.USDBRL.Bid})
 }
 
 func getExchange() *Exchange {
